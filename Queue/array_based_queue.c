@@ -53,7 +53,8 @@ int QueueSize(Queue *QueuePtr) {
     return QueuePtr->size;
 }
 
-// clear all the elements of the queue
+// re-initialize all the front, rear and the size of the queue with thier start values
+// clear the elements by user definition
 void ClearQueue(Queue *QueuePtr) {
     QueuePtr->front = 0;
     QueuePtr->rear = -1;
