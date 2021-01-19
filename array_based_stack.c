@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Stack.h"
+#include "array_based_stack.h"
 
 // initialize stack top with 0
 void CreateStack(Stack *StackPtr) {
