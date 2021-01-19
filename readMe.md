@@ -1,1 +1,1 @@
-this is a stack implementation
+# Array based stack implementation
