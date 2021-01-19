@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "Stack.h"
+#include "linked_based_stack.h"
 
 // initialize the top location of the stack
 void CreateStack(Stack *StackPtr) {
@@ -12,8 +12,8 @@ void CreateStack(Stack *StackPtr) {
 // change the location of the top
 void Push(StackEntry EntryValue, Stack *StackPtr) {
     // malloc returns a pointer of type void
-    // (Element*) is casting the returned pointer from void to Element
-    Element *PtrToNew = (Element *) malloc(sizeof(Element));
+    // (StackNode*) is casting the returned pointer from void to StackNode
+    StackNode *PtrToNew = (StackNode *) malloc(sizeof(StackNode));
     if (!PtrToNew) {
         // report error to the user :)
     }
@@ -31,7 +31,7 @@ void Pop(StackEntry *EntryValuePtr, Stack *StackPtr) {
     if (StackPtr->top != NULL) {
         // malloc returns a pointer of type void
         // (StackNode*) is casting the returned pointer from void to StackNode
-        Element *PtrToNew = StackPtr->top;
+        StackNode *PtrToNew = StackPtr->top;
         *EntryValuePtr = StackPtr->top->entry;
         StackPtr->top = StackPtr->top->next;
         // make the place pn in memory free to be used again
@@ -53,7 +53,7 @@ int StackFull(Stack *StackPtr) {
 
 // free all used memory be the stack
 void Clear(Stack *StackPtr) {
-    Element *PtrToNew;
+    StackNode *PtrToNew;
     while (StackPtr->top != NULL) {
         PtrToNew = StackPtr->top;
         StackPtr->top = StackPtr->top->next;
@@ -64,7 +64,7 @@ void Clear(Stack *StackPtr) {
 
 // access all the elements of the stack to apply an action to all of them
 void TraverseStack(Stack *StackPtr, void(*pf)(StackEntry)) {
-    Element *PtrToNew = StackPtr->top;
+    StackNode *PtrToNew = StackPtr->top;
     while (PtrToNew) {
         (*pf)(PtrToNew->entry);
         PtrToNew = PtrToNew->next;
