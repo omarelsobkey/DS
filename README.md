@@ -1,2 +1,7 @@
 # Data Structure
-Implementing Stack and Queue using Array Based once and Linked List another
+1- Implementination of Stack using: 
+				Array Based Implementation
+				Linked Based Implementation
+2- Implementination of Queue using: 
+				Array Based Implementation
+				Linked Based Implementation
