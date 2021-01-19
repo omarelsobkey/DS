@@ -10,7 +10,7 @@ void CreateQueue(Queue *QueuePtr) {
 // add element to the queue
 void Append(QueueEntry EntryValue, Queue *QueuePtr) {
     // check if the queue is full
-    if (QueueFull(QueuePtr)) {
+    if (!QueueFull(QueuePtr)) {
         // append the new element to the queue
         QueuePtr->rear = (QueuePtr->rear + 1) % MAXQUEUE; // to make it a circular queue
         QueuePtr->entry[QueuePtr->rear] = EntryValue;
@@ -21,7 +21,7 @@ void Append(QueueEntry EntryValue, Queue *QueuePtr) {
 // remove the front element from the queue
 void Serve(QueueEntry *EntryValuePtr, Queue *QueuePtr) {
     // check if the queue is empty
-    if (QueueEmpty(QueuePtr)) {
+    if (!QueueEmpty(QueuePtr)) {
         // remove the front element from the queue
         *EntryValuePtr = QueuePtr->entry[QueuePtr->front];
         QueuePtr->front = (QueuePtr->front + 1) % MAXQUEUE; // to make it a circular queue
