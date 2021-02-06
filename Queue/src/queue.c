@@ -103,7 +103,7 @@ int Append(QueueEntry EntryValue, Queue *QueuePtr) {
 int Serve(QueueEntry *EntryValuePtr, Queue *QueuePtr) {
     QueueNode *PtrToNew = QueuePtr->front;
     // check if the queue is not empty
-    if (!PtrToNew) {
+    if (QueueEmpty()) {
         // print the error message :)
         return 0;
     } else {
